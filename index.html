@@ -2,61 +2,220 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <!-- スマホで正しく表示するための設定 -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hero Gallery</title>
+
+  <title>Smile Honey</title>
+
   <style>
+    /* =====================
+       全体の基本設定
+    ===================== */
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9fafb;
+      margin: 0;                /* 画面の余白をなくす */
+      font-family: sans-serif;  /* 読みやすい標準フォント */
+      line-height: 1.8;         /* 行間を広めに */
       color: #333;
-      margin: 0;
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-    h1 {
-      font-size: 2rem;
+
+    section {
+      width: 100%;
+    }
+
+    img {
+      width: 100%;      /* 画像を画面幅いっぱいに */
+      display: block;   /* 余計な隙間を消す */
+    }
+
+    /* =====================
+       HERO（最初の大きな画像）
+    ===================== */
+    .hero {
+      height: 100vh; /* 画面いっぱいの高さ */
+      background-image: url("https://example.com/hero.jpg"); /* 仮画像 */
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #ffd966;
+      text-shadow: 3px 3px 0 #e08a00;
+    }
+
+    /* =====================
+       商品紹介セクション
+    ===================== */
+    .intro {
+      background-color: #f6b300;
+      color: #fff;
+      padding: 60px 10%;
+      text-align: center;
+    }
+
+    .intro img {
+      max-width: 420px;
+      margin: 0 auto 30px;
+    }
+
+    .intro h2 {
+      font-size: 28px;
       margin-bottom: 20px;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      width: 100%;
-      max-width: 1000px;
+
+    /* =====================
+       コンセプト（青空と花）
+    ===================== */
+    .concept {
+      background-image: url("https://example.com/concept.jpg");
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+
+      padding: 100px 10%;
+      text-align: center;
     }
-    .card {
-      background: white;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      border-radius: 12px;
-      overflow: hidden;
-      transition: transform 0.2s ease;
+
+    .concept h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
     }
-    .card:hover {
-      transform: translateY(-4px);
+
+    .concept p {
+      max-width: 600px;
+      margin: 0 auto;
     }
-    .card img {
-      width: 100%;
-      height: auto;
-      display: block;
+
+    /* =====================
+       商品詳細
+    ===================== */
+    .detail {
+      background-color: #fff;
+      padding: 60px 10%;
+
+      display: flex;        /* 横並びにする */
+      gap: 40px;
+      align-items: center;
     }
-    footer {
-      margin-top: 40px;
-      color: #777;
-      font-size: 0.9rem;
+
+    .detail img {
+      max-width: 360px;
+    }
+
+    .detail-text h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    /* =====================
+       SHOPボタン
+    ===================== */
+    .shop {
+      background-color: #f3d38a;
+      padding: 100px 10%;
+      text-align: center;
+    }
+
+    .shop p {
+      margin-bottom: 40px;
+    }
+
+    .shop a {
+      display: inline-block;
+      padding: 16px 50px;
+      background-color: #a85600;
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+      border-radius: 6px;
+    }
+
+    /* =====================
+       スマホ用の調整
+       画面が小さいとき
+    ===================== */
+    @media (max-width: 768px) {
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .intro {
+        padding: 50px 6%;
+      }
+
+      .concept {
+        padding: 80px 6%;
+      }
+
+      .detail {
+        /* スマホでは縦並びにする */
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .detail img {
+        max-width: 100%;
+      }
+
+      .shop {
+        padding: 80px 6%;
+      }
     }
   </style>
 </head>
+
 <body>
-  <h1>Hero SVG Gallery</h1>
-  <div class="gallery">
-    <div class="card"><img src="1.svg" alt="Hero 1"></div>
-    <div class="card"><img src="2.svg" alt="Hero 2"></div>
-    <div class="card"><img src="3.svg" alt="Hero 3"></div>
-    <div class="card"><img src="4.svg" alt="Hero 4"></div>
-    <div class="card"><img src="5.svg" alt="Hero 5"></div>
-  </div>
-  <footer>© 2025 Hero Gallery</footer>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <h1>Smile Honey</h1>
+  </section>
+
+  <!-- ===== 商品紹介 ===== -->
+  <section class="intro">
+    <img src="https://example.com/honey-drip.jpg" alt="Smile Honey">
+    <h2>THANK YOU FOR COMING!</h2>
+    <p>
+      MANA INCから新しいはちみつが登場しました。<br>
+      その名も「SMILE HONEY」。
+    </p>
+  </section>
+
+  <!-- ===== コンセプト ===== -->
+  <section class="concept">
+    <h2>自然と人の手が育てた、笑顔のはちみつ。</h2>
+    <p>
+      山の花々から集めた蜜を、できるだけ手を加えずに
+      そのまま瓶詰めしました。
+    </p>
+  </section>
+
+  <!-- ===== 商品詳細 ===== -->
+  <section class="detail">
+    <img src="https://example.com/jar.jpg" alt="はちみつの瓶">
+    <div class="detail-text">
+      <h3>Smile Honey</h3>
+      <p>
+        口に入れた瞬間笑顔になるような蜂蜜です。<br><br>
+        税抜価格：2,500円<br>
+        税込価格：2,750円 / 100mL
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== SHOP ===== -->
+  <section class="shop">
+    <p>
+      あなたの街の取扱店をご案内いたします。<br>
+      ※店舗により取扱状況が異なります。
+    </p>
+    <a href="#">SHOP</a>
+  </section>
+
 </body>
 </html>
